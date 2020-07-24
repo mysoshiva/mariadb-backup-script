@@ -90,7 +90,7 @@ case ${CHECK_PARM} in
 esac
 
 # Delete the files older than 5 days
-find $BKP_DIR/* -mtime +"$BKP_RETENTION" -exec rm {} \;
+find $BKP_DIR/* -mtime +"$BKP_RETENTION" -exec rm -Rf {} \;
 if [ "$?" -ne 0 ]; then
   echo "Unable to delete Older Backups" >> $BKP_LOG_DIR
   error_mail "Task Failed at Deletion of older backups"
